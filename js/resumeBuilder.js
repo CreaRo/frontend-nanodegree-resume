@@ -5,7 +5,8 @@ var bio = {
 		"email" : "bhardwaj.rish@gmail.com",
 		"mobile" : "+919904773407",
 		"github" : "crearo",
-		"linkedin" : "linkedin"
+		"linkedin" : "linkedin",
+		"location" : "Gandhinagar"
 	},
 	"welcomeMessage" : "Hallelujah man!",
 	"skills":[
@@ -20,13 +21,15 @@ var education = {
 			"name" : "DA-IICT",
 			"gradyear" : "2017",
 			"degree" : "Bachelors in Technology",
-			"majors" : ["ICT"]
+			"majors" : ["ICT"],
+			"location" : "Gandhinagar"
 		},
 		{
 			"name" : "DAV",
 			"gradyear" : "2013",
 			"degree" : "+2",
-			"majors" : ["Science"]
+			"majors" : ["Science"],
+			"location" : "Pune"
 		}
 	],
 	"onlineCourses" : [
@@ -77,8 +80,11 @@ var projects = {
 
 
 displayHeader();
+displayFooter();
 displayWork();
 projectsdisplay();
+$("#mapDiv").append(googleMap);
+
 
 function displayHeader(){
 	var formattedName = HTMLheaderName.replace("%data%",bio.name);
@@ -99,6 +105,18 @@ function displayHeader(){
 	$("#header").append(myImage);
 	$("#header").append(formattedWelcomemsg);
 	displaySkills();
+}
+
+function displayFooter(){
+	var formattedLinkedIn = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#footerContacts").append(formattedLinkedIn);
+	$("#footerContacts").append(formattedMobile);
+	$("#footerContacts").append(formattedGithub);
+	$("#footerContacts").append(formattedEmail);
+
 }
 
 function displaySkills(){
